@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Typography, styled, Box } from "@mui/material";
+import Balance from "./component/Balance";
+import ExpenseCard from "./component/ExpenseCard";
+import NewTransaction from "./component/NewTransaction";
 
-function App() {
+const StyledHeading = styled(Typography)`
+  margin: 10px;
+  font-size: 50px;
+  text-align: center;
+  color: lightseagreen;
+  text-transform: uppercase;
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <StyledHeading>expense tracker</StyledHeading>
+      <Box>
+        <Box>
+          <Balance />
+          <ExpenseCard />
+          <NewTransaction />
+        </Box>
+        <Box></Box>
+      </Box>
+    </Box>
   );
-}
+};
 
 export default App;
