@@ -29,22 +29,25 @@ const Component = styled(Box)`
 
 const App = () => {
   const [transactions, setTransactions] = useState([
-    { id: 1, text: "Momos", amount: -20 },
-    { id: 2, text: "Salary", amount: 2000 },
-    { id: 3, text: "Phone", amount: -200 },
-    { id: 4, text: "Bonus", amount: 120 },
+    { id: 1, text: "Momos", amount: -100 },
+    { id: 2, text: "Salary", amount: 10000 },
+    { id: 3, text: "Phone", amount: -2000 },
+    { id: 4, text: "Bonus", amount: 1000 },
   ]);
   return (
     <Box sx={{ bgcolor: "white", height: "100vh" }}>
       <StyledHeading>expense tracker</StyledHeading>
       <Component>
         <Box>
-          <Balance />
-          <ExpenseCard />
-          <NewTransaction />
+          <Balance transactions={transactions} />
+          <ExpenseCard transactions={transactions} />
+          <NewTransaction setTransactions={setTransactions} />
         </Box>
         <Box>
-          <Transaction transactions={transactions} />
+          <Transaction
+            transactions={transactions}
+            setTransactions={setTransactions}
+          />
         </Box>
       </Component>
     </Box>
